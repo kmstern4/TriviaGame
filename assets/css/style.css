@@ -12,6 +12,7 @@ h1 {
     font-size: 80px;
     margin-top: 5px;
     margin-bottom: 20px;
+    text-shadow: 1vmin 1vmin 0 #f89f2d, -1vmin -1vmin 0 #f888a0;
 }
 .container {
     margin-left: 20%;
