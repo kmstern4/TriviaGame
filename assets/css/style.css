@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald|Sigmar+One');
+
+
+body {
+    background-image: url(../images/zebraflam.jpg);
+    background-repeat: repeat;
+}
+
+h1 {
+    font-family: "Sigmar One", cursive;
+    color: white;
+    font-size: 80px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.container {
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: center;
+    background: #193322;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    font-family: "Oswald", sans-serif;
+    color: white;
+}
+
+input {
+    visibility: hidden;
+}
+
+label {
+    cursor: pointer;
+    color: #f89f2d;
+    font-size: 20px;
+    
+}
+
+label:hover {
+    font-size: 25px;
+}
+
+#choicesText {
+    margin-top: 10px;
+}
+
+#questionText {
+    font-size: 30px;
+}
+
+p {
+    font-size: 18px;
+    text-align: center;
+}
+
+form {
+    padding-right: 20px;
+}
