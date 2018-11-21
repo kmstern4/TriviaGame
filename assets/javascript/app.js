@@ -110,9 +110,10 @@ function clickEvent() {
             score++;
             setTimeout(startGame, 3500);
         } else {
+            var correctAnswer = questionsArr[index].correct;
             var newImg = $("<img>").attr("src", imgArr[index]);
             $("#gifText").append("<p id='correctP'></p>").append(newImg);
-            $("#correctP").text("Incorrect! The correct answer was " + questionsArr[index].answer[index] + ".");
+            $("#correctP").text("Incorrect! The correct answer was " + questionsArr[index].answer[correctAnswer] + ".");
             $("input").off();
             index++;
             setTimeout(startGame, 3500);
