@@ -52,26 +52,25 @@ var questionsArr = [
 ];
 
 var imgArr = ["assets/images/lemur.jpg", "assets/images/humming.jpg", "assets/images/rabbit.jpg", "assets/images/frog.jpg", "assets/images/coral.jpg", "assets/images/snake.jpg", "assets/images/bee.jpg", "assets/images/smell.jpg", "assets/images/platy.jpg", "assets/images/croc.jpg"];
-
 var index = 0;
 var score = 0;
 var time = 30;
 var interval;
 
 function resetQuestion() {
-        $("#questionText").empty();
-        $("#questionText").text(questionsArr[index].question);
-        $("#choicesText").empty();
-        $("#gifText").empty();
-        var choices = questionsArr[index].answer;
-        for (i = 0; i < choices.length; i++) {
-            var newRadio = $("<input type='radio' name='choice' />");
-            var radioLabel = $("<label>").attr("for", i).text(choices[i]);
-            newRadio.attr("value", i).attr("id", i);
-            $("#choicesText").append(newRadio).append(radioLabel).append("<br>");
-        };
-        timerStart();
-        clickEvent();
+    $("#questionText").empty();
+    $("#questionText").text(questionsArr[index].question);
+    $("#choicesText").empty();
+    $("#gifText").empty();
+    var choices = questionsArr[index].answer;
+    for (i = 0; i < choices.length; i++) {
+        var newRadio = $("<input type='radio' name='choice' />");
+        var radioLabel = $("<label>").attr("for", i).text(choices[i]);
+        newRadio.attr("value", i).attr("id", i);
+        $("#choicesText").append(newRadio).append(radioLabel).append("<br>");
+    };
+    timerStart();
+    clickEvent();
 };
 
 function startGame() {
@@ -81,11 +80,23 @@ function startGame() {
         $("#questionText").empty();
         $("#choicesText").empty();
         $("#gifText").empty();
-        $("p").text("You correctly guessed " + score + " questions!").append("<br>").append("<img src='assets/images/party.jpg'>");
+        $("#timeP").empty();
+        $("#timeP").text("You answered " + score + " questions correctly!").append("<br>");
+        $("#timeP").append("<p id='incorrectly'>");
+        $("#incorrectly").text("You answered " + (questionsArr.length - score) + " questions incorrectly!").append("<br><br>").append("<img src='assets/images/party.jpg'>").append("<br>").append("<button id='resetButton'>Reset</button>");
+        resetGame();
     }
 };
 
-
+function resetGame() {
+    $("#resetButton").on("click", function() {
+        index = 0;
+        score = 0;
+        $("#timeP").empty;
+        $("#timeP").text("Seconds remaining: ").append("<span id='timeText'>30</span>")
+        startGame();
+})
+};
 
 
 function clickEvent() {
@@ -94,16 +105,16 @@ function clickEvent() {
         if (questionsArr[index].correct == this.value) {
             var newImg = $("<img>").attr("src", imgArr[index]);
             $("#gifText").append("<p id='correctP'>Correct!</p>").append(newImg);
+            $("input").off();
             index++;
             score++;
-            setTimeout(startGame, 4000);
-            console.log("correct: " + index);
+            setTimeout(startGame, 3500);
         } else {
             var newImg = $("<img>").attr("src", imgArr[index]);
             $("#gifText").append("<p id='correctP'>Incorrect!</p>").append(newImg);
+            $("input").off();
             index++;
             setTimeout(startGame, 3500);
-            console.log("incorrect: " + index);
         };
 
     });

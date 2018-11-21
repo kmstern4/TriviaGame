@@ -60,7 +60,7 @@ form {
     padding-right: 20px;
 }
 
-#startButton {
+button {
     display: inline-block;
     background: transparent;
     border: 0px;
@@ -69,7 +69,7 @@ form {
     font-size: 40px;
 }
 
-#startButton:hover {
+button:hover {
     text-shadow: 0.5vmin 0.5vmin 0 #f89f2d, -0.5vmin -0.5vmin 0 #f888a0;
 }
 
