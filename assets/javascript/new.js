@@ -85,24 +85,25 @@ function startGame() {
     }
 };
 
-startGame();
+
 
 
 function clickEvent() {
     $("input").on("click", function() {
+        clearInterval(interval);
         if (questionsArr[index].correct == this.value) {
             var newImg = $("<img>").attr("src", imgArr[index]);
             $("#gifText").append("<p id='correctP'>Correct!</p>").append(newImg);
             index++;
             score++;
-            clearInterval(interval);
             setTimeout(startGame, 4000);
+            console.log("correct: " + index);
         } else {
             var newImg = $("<img>").attr("src", imgArr[index]);
             $("#gifText").append("<p id='correctP'>Incorrect!</p>").append(newImg);
             index++;
-            clearInterval(interval);
             setTimeout(startGame, 3500);
+            console.log("incorrect: " + index);
         };
 
     });
@@ -125,3 +126,12 @@ function timerStart() {
     time = 30;
     interval = setInterval(timerCount, 1000);
 };
+
+$("#startButton").on("click", function () {
+    var startButton = $("#startButton");
+    var timeP = $("#timeP");
+    startButton[0].style.display = "none";
+    timeP[0].style.display = "block";
+    startGame();
+
+});

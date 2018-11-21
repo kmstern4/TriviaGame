@@ -59,3 +59,20 @@ p {
 form {
     padding-right: 20px;
 }
+
+#startButton {
+    display: inline-block;
+    background: transparent;
+    border: 0px;
+    font-family: "Sigmar One", cursive;
+    color: white;
+    font-size: 40px;
+}
+
+#startButton:hover {
+    text-shadow: 0.5vmin 0.5vmin 0 #f89f2d, -0.5vmin -0.5vmin 0 #f888a0;
+}
+
+#timeP {
+    display: none;
+}
